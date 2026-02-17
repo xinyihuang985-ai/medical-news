@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBM-Agent 医学文献科研动态</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .sidebar { background-color: #f8fafc; border-right: 1px solid #e2e8f0; }
+        .active-user-badge { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .glass-card { background: white; border: 1px solid #f1f5f9; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    </style>
+</head>
+<body class="bg-[#f1f5f9] min-h-screen flex">
+
+    <aside class="sidebar w-80 h-screen sticky top-0 flex flex-col p-6 overflow-y-auto shrink-0">
+        <div class="flex items-center gap-3 mb-10">
+            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg">
+                <i class="fas fa-stethoscope"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-slate-800">EBM-Agent</h1>
+                <p class="text-xs text-slate-500 font-medium">循证医学 AI 助手</p>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <section>
+                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">📁 团队介绍</h3>
+                <div class="bg-white rounded-lg p-4 text-sm text-slate-600 leading-relaxed shadow-sm border border-slate-100">
+                    <p class="mb-2 font-medium text-slate-800">循证医学决策支持团队</p>
+                    <p>致力于通过 LLM 技术自动化 PubMed 文献筛选与临床价值挖掘，为科研人员提供 48 小时内的极速科研简报。</p>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">⚙️ 数据控制</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center gap-2 text-sm text-blue-600 bg-blue-50 p-2 rounded cursor-pointer">
+                        <i class="fas fa-file-lines w-4"></i> 文献格式说明书
+                    </li>
+                    <li id="status-tag" class="flex items-center gap-2 text-sm text-slate-600 p-2">
+                        <i class="fas fa-circle-notch fa-spin w-4"></i> 正在同步云端数据
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="mt-auto pt-10 text-[10px] text-slate-400 text-center uppercase tracking-widest">
+            © 2026 EBM-Agent Labs
+        </div>
+    </aside>
+
+    <main class="flex-1 p-10 overflow-y-auto">
+        <header class="flex justify-between items-center mb-8">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-800">👋 欢迎！为您生成的分析结果：</h2>
+                <p class="text-slate-500 mt-1">基于您的个人订阅偏好，已检索最新 PubMed 文献</p>
+            </div>
+            <div id="user-badge" class="active-user-badge text-white px-4 py-2 rounded-full text-xs font-bold shadow-md">
+                用户: 加载中...
+            </div>
+        </header>
+
+        <div id="content-list" class="grid grid-cols-1 gap-6">
+            <div class="animate-pulse space-y-4">
+                <div class="h-48 bg-slate-200 rounded-2xl"></div>
+                <div class="h-48 bg-slate-200 rounded-2xl"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        async function fetchResearch() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('user'); // 捕获 URL 中的 ?user= 参数
+            const container = document.getElementById('content-list');
+            const badge = document.getElementById('user-badge');
+            const statusTag = document.getElementById('status-tag');
+
+            if (!userId) {
+                container.innerHTML = `<div class="p-10 text-center bg-white rounded-2xl border-2 border-dashed border-slate-200 text-slate-400">请在侧边栏配置用户 ID 或使用链接参数访问</div>`;
+                badge.innerText = "未登录";
+                return;
+            }
+
+            badge.innerText = `ID: ${userId.substring(0, 8)}...`;
+
+            try {
+                // 核心逻辑：从 data/ 目录下读取对应的 json 文件
+                const response = await fetch(`./data/data_${userId}.json?cache_bust=${new Date().getTime()}`);
+                if (!response.ok) throw new Error('文件未生成');
+                
+                const data = await response.json();
+                
+                statusTag.innerHTML = `<i class="fas fa-check-circle text-green-500 w-4"></i> 数据已实时更新`;
+                
+                container.innerHTML = data.map(article => `
+                    <div class="glass-card p-8 rounded-2xl border-l-8 border-l-blue-600">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-slate-800 leading-tight">${article.chinese_title || '医学动态更新'}</h3>
+                            <span class="text-xs font-bold text-slate-400 shrink-0 ml-4">${article.publish_date || '2026'}</span>
+                        </div>
+                        
+                        <div class="bg-blue-50/50 p-4 rounded-xl mb-6">
+                            <h4 class="text-xs font-bold text-blue-600 uppercase mb-2">💡 临床价值痛点</h4>
+                            <p class="text-slate-700 text-sm leading-relaxed italic">"${article.clinical_significance || '正在解析临床意义...'}"</p>
+                        </div>
+
+                        <div class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            <strong class="text-slate-800 block mb-1">🔍 深度解析：</strong>
+                            ${article.deep_analysis || article.abstract || '摘要内容加载中...'}
+                        </div>
+
+                        <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+                            <div class="flex gap-2 text-[10px] font-bold text-slate-400">
+                                <span class="bg-slate-100 px-2 py-1 rounded">PUBMED ID: ${article.source_url ? article.source_url.split('/').pop() : 'N/A'}</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded">TYPE: SYSTEMATIC REVIEW</span>
+                            </div>
+                            <a href="${article.source_url}" target="_blank" class="text-blue-600 text-sm font-bold flex items-center gap-1 hover:underline">
+                                访问原文 <i class="fas fa-arrow-right-long text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (err) {
+                container.innerHTML = `
+                    <div class="p-10 text-center bg-blue-50 rounded-2xl border-2 border-dashed border-blue-200">
+                        <div class="text-4xl mb-4 text-blue-400"><i class="fas fa-rocket fa-bounce"></i></div>
+                        <h3 class="text-lg font-bold text-blue-800 mb-2">🚀 AI 正在运行 NMA 分析</h3>
+                        <p class="text-blue-600 text-sm">已触发自动化任务，请在 1 分钟后刷新页面查收结果。</p>
+                    </div>`;
+                statusTag.innerHTML = `<i class="fas fa-hourglass-half text-amber-500 w-4"></i> 正在等待 AI 生成结果`;
+            }
+        }
+
+        fetchResearch();
+    </script>
+</body>
+</html>
