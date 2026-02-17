@@ -27,20 +27,20 @@
 
     <aside class="sidebar w-full lg:w-[360px] lg:h-screen lg:sticky lg:top-0 flex flex-col text-slate-300 shadow-2xl shrink-0 custom-scrollbar overflow-y-auto">
         
-        <div class="p-12 flex justify-center">
-            <div class="w-28 h-28 bg-white rounded-3xl flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-3 transition-transform hover:scale-105">
-                <img src="logo.png" class="w-24 h-24 object-contain" alt="EBM-Agent Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="p-10 flex justify-center border-b border-slate-800/50">
+            <div class="w-full max-w-[280px] h-32 bg-white rounded-2xl flex items-center justify-center shadow-xl p-4">
+                <img src="logo.png" class="w-full h-full object-contain" alt="EBM-Agent Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <i class="fas fa-microscope text-blue-600 text-5xl" style="display:none;"></i>
             </div>
         </div>
 
-        <div class="px-8 pb-8 space-y-10">
+        <div class="p-8 space-y-10">
             <section>
                 <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
                     <i class="fas fa-bullseye text-blue-500"></i> 医研速递愿景
                 </h3>
-                <div class="bg-blue-500/5 p-5 rounded-2xl border border-blue-500/20 text-center">
-                    <p class="text-[13px] leading-relaxed italic text-blue-100/90 font-medium">
+                <div class="bg-blue-500/5 p-4 rounded-xl border border-blue-500/20">
+                    <p class="text-[12px] leading-relaxed italic text-blue-100/80">
                         "在海量医学文献中精准捕捉科研脉搏，让每一份简报都具备改变临床实践的潜力。"
                     </p>
                 </div>
@@ -48,37 +48,17 @@
 
             <section>
                 <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <i class="fas fa-rss text-blue-500"></i> 每日科研速递
-                </h3>
-                <div class="space-y-4">
-                    <div class="flex gap-4">
-                        <div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-check text-[10px] text-blue-500"></i>
-                        </div>
-                        <p class="text-xs text-slate-400"><strong class="text-slate-200 block mb-1">领域定制</strong>针对您关注的特定医学领域，每日自动检索 PubMed 最新成果。</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                            <i class="fas fa-check text-[10px] text-blue-500"></i>
-                        </div>
-                        <p class="text-xs text-slate-400"><strong class="text-slate-200 block mb-1">临床转化</strong>AI 深度解读研究的临床痛点与应用价值。</p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
                     <i class="fas fa-users text-blue-500"></i> 团队成员
                 </h3>
-                <div class="grid grid-cols-2 gap-2">
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">刘一帆</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">黄欣怡</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">陈彦冰</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">何学为</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">林思扬</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">苏鸿恩</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">江晨凯</span>
-                    <span class="px-2 py-2 bg-white/5 rounded-lg text-[11px] border border-white/10 text-center hover:bg-white/10 transition-colors">李陈汐</span>
+                <div class="flex flex-wrap gap-x-3 gap-y-2 text-[11px] text-slate-400">
+                    <span class="hover:text-white transition-colors">刘一帆</span>
+                    <span class="hover:text-white transition-colors">黄欣怡</span>
+                    <span class="hover:text-white transition-colors">陈彦冰</span>
+                    <span class="hover:text-white transition-colors">何学为</span>
+                    <span class="hover:text-white transition-colors">林思扬</span>
+                    <span class="hover:text-white transition-colors">苏鸿恩</span>
+                    <span class="hover:text-white transition-colors">江晨凯</span>
+                    <span class="hover:text-white transition-colors">李陈汐</span>
                 </div>
             </section>
 
@@ -86,40 +66,43 @@
                 <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
                     <i class="fas fa-user-graduate text-blue-500"></i> 指导老师
                 </h3>
-                <div class="bg-white/5 p-4 rounded-xl border border-white/10">
-                    <div class="flex flex-wrap gap-x-3 gap-y-2 text-slate-400 font-medium">
-                        <span class="text-[11px] hover:text-white cursor-default transition-colors">庄源东</span>
-                        <span class="text-[11px] hover:text-white cursor-default transition-colors">罗道枢</span>
-                        <span class="text-[11px] hover:text-white cursor-default transition-colors">赵江杰</span>
-                        <span class="text-[11px] hover:text-white cursor-default transition-colors">蔡兆霖</span>
-                        <span class="text-[11px] hover:text-white cursor-default transition-colors">翟广涛</span>
-                    </div>
+                <div class="flex flex-wrap gap-x-2 gap-y-1 text-[11px] text-slate-400">
+                    <span>庄源东</span><span>/</span><span>罗道枢</span><span>/</span><span>赵江杰</span><span>/</span><span>蔡兆霖</span><span>/</span><span>翟广涛</span>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <i class="fas fa-rss text-blue-500"></i> 每日科研速递
+                </h3>
+                <div class="space-y-3 text-[11px] text-slate-400 leading-relaxed">
+                    <p><i class="fas fa-check text-blue-500 mr-2"></i><strong class="text-slate-200">领域定制：</strong>每日自动检索 PubMed 最新成果。</p>
+                    <p><i class="fas fa-check text-blue-500 mr-2"></i><strong class="text-slate-200">临床转化：</strong>AI 深度解读研究临床价值。</p>
                 </div>
             </section>
 
             <div class="pt-6 border-t border-slate-800/50">
                 <div id="sync-status" class="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                    <span class="status-pulse">系统就绪</span>
+                    <span class="status-pulse text-green-500">数据已同步</span>
                 </div>
             </div>
         </div>
     </aside>
 
     <main class="flex-1 p-6 lg:p-12 overflow-y-auto">
-        <header class="mb-12 flex flex-col lg:flex-row justify-between lg:items-end gap-6">
+        <header class="mb-10 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
             <div>
-                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">文献科研简报</h2>
-                <p class="text-slate-500 font-semibold italic text-lg opacity-80">Empowering Clinical Decision with AI-Driven Evidence</p>
+                <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-2 font-serif">文献科研简报</h2>
+                <p class="text-slate-500 font-medium italic">EBM-Agent AI Driven Evidence Analysis</p>
             </div>
-            <div id="user-tag" class="text-[11px] font-black bg-blue-600 text-white px-5 py-2.5 rounded-full shadow-lg self-start uppercase tracking-widest">
+            <div id="user-tag" class="text-[10px] font-black bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg self-start">
                 USER: INITIALIZING
             </div>
         </header>
 
-        <div id="content-list" class="grid grid-cols-1 gap-10">
+        <div id="content-list" class="grid grid-cols-1 gap-8">
             <div class="animate-pulse space-y-4">
-                <div class="h-64 bg-slate-200 rounded-3xl"></div>
-                <div class="h-64 bg-slate-200 rounded-3xl"></div>
+                <div class="h-64 bg-slate-200 rounded-2xl"></div>
             </div>
         </div>
     </main>
@@ -130,12 +113,9 @@
             const userId = urlParams.get('user');
             const container = document.getElementById('content-list');
             const userTag = document.getElementById('user-tag');
-            const statusBox = document.getElementById('sync-status');
 
             if (!userId) {
-                container.innerHTML = `<div class="p-16 text-center glass-card rounded-3xl border-2 border-dashed border-slate-200 text-slate-400">
-                    <i class="fas fa-id-card text-5xl mb-6 opacity-30"></i><br>请通过系统生成的专属链接访问。</div>`;
-                userTag.innerText = "ACCESS DENIED";
+                container.innerHTML = `<div class="p-12 text-center glass-card rounded-2xl border-2 border-dashed border-slate-200 text-slate-400">请使用专属链接访问。</div>`;
                 return;
             }
 
@@ -143,63 +123,29 @@
 
             try {
                 const response = await fetch(`./data/data_${userId}.json?t=${new Date().getTime()}`);
-                if (!response.ok) throw new Error('DATA_NOT_SYNCED');
-                
+                if (!response.ok) throw new Error('NOT_FOUND');
                 const data = await response.json();
-                statusBox.innerHTML = `<span class="status-pulse text-green-500">已实时同步数据</span>`;
 
                 container.innerHTML = data.map(item => `
-                    <article class="glass-card p-8 lg:p-12 rounded-[2.5rem] relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 w-2.5 h-full bg-blue-600 group-hover:w-3 transition-all"></div>
-                        
-                        <div class="flex flex-col lg:flex-row justify-between lg:items-start mb-8 gap-6">
-                            <h3 class="text-2xl lg:text-3xl font-bold text-slate-900 leading-tight lg:max-w-3xl">
-                                ${item.chinese_title || item.original_title}
-                            </h3>
-                            <div class="flex lg:flex-col items-end gap-2 lg:gap-1 shrink-0">
-                                <span class="text-[10px] font-black text-slate-300 uppercase tracking-tighter">Pub Date</span>
-                                <span class="text-lg font-bold text-blue-600">${item.publish_date || '2026-02'}</span>
-                            </div>
+                    <article class="glass-card p-8 lg:p-10 rounded-3xl relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
+                        <div class="flex flex-col lg:flex-row justify-between lg:items-start mb-6 gap-4">
+                            <h3 class="text-xl lg:text-2xl font-bold text-slate-900 leading-snug lg:max-w-2xl">${item.chinese_title || item.original_title}</h3>
+                            <span class="text-sm font-bold text-blue-600 shrink-0">${item.publish_date || '2026-02'}</span>
                         </div>
-
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                             <div class="lg:col-span-8">
-                                <div class="mb-8">
-                                    <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                        <i class="fas fa-file-alt"></i> Deep Analysis / 摘要解析
-                                    </h4>
-                                    <p class="text-slate-600 text-[15px] leading-relaxed">${item.deep_analysis || item.abstract}</p>
-                                </div>
-                                <div class="flex gap-4">
-                                    <a href="${item.source_url}" target="_blank" class="px-8 py-4 bg-slate-900 text-white text-xs font-bold rounded-2xl hover:bg-blue-600 hover:shadow-xl transition-all flex items-center gap-3">
-                                        阅读原文 <i class="fas fa-external-link-alt text-[10px]"></i>
-                                    </a>
-                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-6 font-light">${item.deep_analysis || item.abstract}</p>
+                                <a href="${item.source_url}" target="_blank" class="inline-flex px-6 py-3 bg-slate-900 text-white text-[10px] font-bold rounded-xl hover:bg-blue-600 transition-all uppercase tracking-widest">阅读原文</a>
                             </div>
-                            
-                            <div class="lg:col-span-4 bg-slate-50 p-8 rounded-[2rem] border border-slate-100 relative shadow-inner">
-                                <i class="fas fa-quote-left text-blue-100 text-4xl absolute top-6 left-6 opacity-60"></i>
-                                <h4 class="text-[11px] font-black text-blue-600 uppercase tracking-widest mb-4 relative z-10 flex items-center gap-2">
-                                    <i class="fas fa-lightbulb"></i> Clinical Significance
-                                </h4>
-                                <p class="text-slate-700 text-sm leading-relaxed italic relative z-10 font-medium">
-                                    "${item.clinical_significance || 'AI 正在深度挖掘临床应用价值...'}"
-                                </p>
+                            <div class="lg:col-span-4 bg-slate-50 p-6 rounded-2xl border border-slate-100 italic text-slate-700 text-xs leading-relaxed">
+                                <i class="fas fa-quote-left text-blue-200 mr-2"></i>${item.clinical_significance || 'AI 正在解析该研究对临床决策的潜在影响...'}
                             </div>
                         </div>
                     </article>
                 `).join('');
-
             } catch (err) {
-                container.innerHTML = `
-                    <div class="p-20 text-center">
-                        <div class="w-24 h-24 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
-                            <i class="fas fa-sync-alt text-4xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 tracking-tight">AI 数据同步中</h3>
-                        <p class="text-slate-500 text-[15px] max-w-sm mx-auto leading-relaxed mb-10">正在处理您的偏好设置并生成最新的科研动态，预计需要 1 分钟。</p>
-                        <button onclick="window.location.reload()" class="px-10 py-4 bg-blue-600 text-white text-sm font-bold rounded-2xl shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition-all">立即手动刷新</button>
-                    </div>`;
+                container.innerHTML = `<div class="p-20 text-center text-slate-500 font-light">正在同步最新科研动态，请稍后刷新...</div>`;
             }
         }
         init();
